@@ -9,7 +9,12 @@ interface Card {
 }
 
 
-function CardReport({card}) {
+interface CardReportProps {
+  card: Card
+}
+
+
+function CardReport({card}: CardReportProps) {
   const percentUnderstood = Math.round(card.understanding * 100)
 
   return (
@@ -26,11 +31,11 @@ function CardReport({card}) {
 
 
 export default function Summary() {
-  const [cards, setCards] = useState<Card[]>(null)
+  const [cards, setCards] = useState<Card[]|null>(null)
 
   useEffect(() => {
     async function fetchCards() {
-      let cardsResponse: Awaited<Promise<Card[]>> = await fetch('/cards.json')
+      let cardsResponse = await fetch('/cards.json')
       let cards: Card[] = await cardsResponse.json()
       
       setCards(cards);
