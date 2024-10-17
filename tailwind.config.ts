@@ -14,6 +14,11 @@ const config: Config = {
         accent: "#e75133",
         text: "#eeeeee",
         itext: "#111111",
+
+        easy: "#99eb59",
+        medium: "#ebc659",
+        hard: "#eb5d59",
+
       },
     },
   },

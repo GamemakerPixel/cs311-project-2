@@ -14,14 +14,22 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+h1 {
+  @apply text-center text-4xl mb-4
+}
+
+p {
+  @apply text-center text-base mb-4
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .standard-button {
+    @apply text-2xl justify-center items-center mx-auto block border-4 rounded-xl w-60 h-24 my-24 flex
   }
 }
