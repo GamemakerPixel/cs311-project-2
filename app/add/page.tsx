@@ -1,5 +1,9 @@
 export default function Add() {
+  
+
   return (
-    <div>Add Page</div>
+    <div>
+      <h1>Add a card:</h1>
+    </div>
   );
 }
