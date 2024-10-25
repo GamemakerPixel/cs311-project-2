@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-import getCardsFromDB from '@/app/components/cards_server'
+import { CardData, getCardsFromDB } from '@/app/components/cards_server'
 
 export interface Card {
   question: string
@@ -33,7 +33,7 @@ export function getCards() {
     async function fetchCards() {
       const cardsData = await getCardsFromDB()
 
-      const cards = cardsData.map((cardData) => (
+      const cards = cardsData.map((cardData: CardData) => (
         {
           question: cardData.Question,
           answer: cardData.Answer,
