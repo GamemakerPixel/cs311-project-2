@@ -5,10 +5,14 @@ import { Card, getCards } from "@/app/components/cards"
 
 
 export default function Study() {
-  const cards: Card[] = getCards()
-  const [currentCard, setCurrentCard] = useState<Card>(null);
+  const cards: Card[] | null = getCards()
+  const [currentCard, setCurrentCard] = useState<Card | null>(null);
 
   function pickCard() {
+    if (cards == null) {
+      return null
+    }
+
     let ranges: number[] = [0.0]
 
     for (let cardIndex = 0; cardIndex < cards.length; cardIndex++) {
@@ -34,7 +38,13 @@ export default function Study() {
       return
     }
 
-    setCurrentCard(pickCard())
+    const card = pickCard()
+
+    if (!card) {
+      return
+    }
+
+    setCurrentCard(card)
   }, [cards])
 
   function InteractableSection({ answer }: { answer: string }) {
@@ -46,7 +56,13 @@ export default function Study() {
 
     function rateQuestion() {
       setAnswerRevealed(false)
-      setCurrentCard(pickCard())
+
+      const card = pickCard()
+      if (!card) {
+        return
+      }
+
+      setCurrentCard(card)
     }
 
 
