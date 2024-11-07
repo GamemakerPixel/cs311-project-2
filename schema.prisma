@@ -12,5 +12,5 @@ model Cards {
   Id            String @id @default(cuid())
   Question      String
   Answer        String
-  Understanding Float
+  Understanding Float      @default(0.5)
 }

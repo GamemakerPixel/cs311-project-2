@@ -89,10 +89,10 @@ export default function Summary() {
   return (
     <div>
       <h1>Summary</h1>
-      <div className="bg-secondary m-8 p-4 rounded-lg">
+      <div className="standard-panel">
         {
           cards.map((card: Card) => (
-            <CardReport card={card}/>
+            <CardReport card={card} key={card.id}/>
           ))
         }
       </div>

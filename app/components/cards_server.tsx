@@ -1,5 +1,5 @@
 'use server'
-import { useState } from 'react'
+import { redirect } from 'next/navigation'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -15,4 +15,26 @@ export async function getCardsFromDB() {
   const cards = await prisma.cards.findMany()
 
   return cards
+}
+
+export async function addCard(form) {
+  await prisma.cards.create({
+    data: {
+      Question: form.get("question"),
+      Answer: form.get("answer"),
+    },
+  })
+
+  redirect("/add")
+}
+
+export async function updateCardUnderstanding(id: string, understanding: number) {
+  await prisma.cards.update({
+    where: {
+      Id: id,
+    },
+    data: {
+      Understanding: understanding,
+    },
+  })
 }

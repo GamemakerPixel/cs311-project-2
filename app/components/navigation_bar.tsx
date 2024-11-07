@@ -24,8 +24,8 @@ export default function NavigationBar() {
         {title}
       </Link>
       {
-        pages.map((page) => (
-          <Link href={page.path} className="m-2 text-center bg-background p-2 rounded-lg">
+        pages.map((page, index) => (
+          <Link href={page.path} key={index} className="m-2 text-center bg-background p-2 rounded-lg">
             {page.name}
           </Link>
         ))
