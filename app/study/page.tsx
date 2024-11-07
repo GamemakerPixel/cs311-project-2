@@ -57,7 +57,7 @@ export default function Study() {
     }
 
     function rateQuestion(rating: CardRating) {
-      rateCard(currentCard, rating)
+      rateCard(currentCard as Card, rating)
       setAnswerRevealed(false)
 
       const card = pickCard()

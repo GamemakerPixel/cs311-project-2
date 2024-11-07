@@ -17,11 +17,11 @@ export async function getCardsFromDB() {
   return cards
 }
 
-export async function addCard(form) {
+export async function addCard(form: FormData) {
   await prisma.cards.create({
     data: {
-      Question: form.get("question"),
-      Answer: form.get("answer"),
+      Question: form.get("question") as string,
+      Answer: form.get("answer") as string,
     },
   })
 

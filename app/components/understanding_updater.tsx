@@ -1,5 +1,5 @@
 'use client'
-import { Card, updateUnderstandingCache } from "@/app/components/cards"
+import { Card } from "@/app/components/cards"
 import { updateCardUnderstanding } from "@/app/components/cards_server"
 
 
@@ -26,7 +26,7 @@ const newRatingWeight = 0.2
 // fetch the value again from the server after we update it. (The "cards"
 // state in cards.tsx is only fetched when the page is loaded, so its
 // understanding values quickly become outdated.)
-let understandingCache: {[id: string]: number} = []
+let understandingCache: {[id: string]: number} = {}
 
 
 export function rateCard(card: Card, rating: CardRating) {
