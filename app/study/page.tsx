@@ -73,15 +73,15 @@ export default function Study() {
       return (
         <div>
           <h1>{answer}</h1>
-          <p>Rate the question difficulty:</p>
+          <p className="mt-24">Rate the question difficulty:</p>
           <div className="flex content-center">
-            <button onClick={() => rateQuestion(CardRating.EASY)} className="standard-button w-56 h-20 border-easy inline-flex">
+            <button onClick={() => rateQuestion(CardRating.EASY)} className="standard-button w-56 h-20 border-easy inline-flex hover:bg-background hover:text-accent mt-4">
               Easy
             </button>
-            <button onClick={() => rateQuestion(CardRating.MEDIUM)} className="standard-button w-56 h-20 border-medium inline-flex">
+            <button onClick={() => rateQuestion(CardRating.MEDIUM)} className="standard-button w-56 h-20 border-medium inline-flex hover:bg-background hover:text-accent mt-4">
               Medium
             </button>
-            <button onClick={() => rateQuestion(CardRating.HARD)} className="standard-button w-56 h-20 border-hard inline-flex">
+            <button onClick={() => rateQuestion(CardRating.HARD)} className="standard-button w-56 h-20 border-hard inline-flex hover:bg-background hover:text-accent mt-4">
               Hard
             </button>
           </div>

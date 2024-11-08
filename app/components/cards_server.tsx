@@ -17,15 +17,26 @@ export async function getCardsFromDB() {
   return cards
 }
 
-export async function addCard(form: FormData) {
-  await prisma.cards.create({
+export async function addCard(formState: string, form: FormData) {
+  const response = await prisma.cards.create({
     data: {
       Question: form.get("question") as string,
       Answer: form.get("answer") as string,
     },
+    select: {
+      Id: true,
+    },
   })
 
-  redirect("/add")
+  return response.Id
+}
+
+export async function removeCard(id: string) {
+  await prisma.cards.delete({
+    where: {
+      Id: id,
+    },
+  })
 }
 
 export async function updateCardUnderstanding(id: string, understanding: number) {
