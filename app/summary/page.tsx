@@ -61,7 +61,7 @@ function CardReport({ card, onRemove }: {card: Card, onRemove: () => void}) {
     <div className="flex mx-2 py-2 items-center border-t border-b border-gray-700">
       <div
         style={{ backgroundColor: generatePercentageColor(card.understanding)}}
-        className="p-1 rounded-lg mr-2 w-20 text-center text-itext font-bold"
+        className="p-1 rounded-lg mr-2 w-24 text-center text-itext font-bold"
       >
         {percentUnderstood}%
       </div>
@@ -99,6 +99,11 @@ export default function Summary() {
     <div>
       <h1>Summary</h1>
       <div className="standard-panel">
+      <div className="flex mx-2">
+	<span className="w-24 text-center">Understood</span>
+	<span className="flex-grow mx-2">Question</span>
+	<span>Remove Card</span>
+      </div>
         {
           cards.map((card: Card) => {
             if (removedCards.indexOf(card.id) != -1) {
