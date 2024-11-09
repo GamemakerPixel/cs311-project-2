@@ -20,7 +20,7 @@ const ratingValues = {
 }
 
 
-const newRatingWeight = 0.2
+const newRatingWeight = 0.35
 
 // Caching the understanding value of each card means that we don't have to
 // fetch the value again from the server after we update it. (The "cards"

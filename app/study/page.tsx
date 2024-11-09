@@ -23,7 +23,9 @@ export default function Study() {
         continue
       }
       const cardPriority = 1.0 - cards[cardIndex].understanding
-      ranges.push(ranges[cardIndex] + cardPriority)
+      // cardPriority is squared to further skew the algorithm in favor of picking cards with
+      // an understanding value of less than 50%.
+      ranges.push(ranges[cardIndex] + cardPriority * cardPriority)
     }
 
     const selectionNumber = Math.random() * ranges[ranges.length - 1]
